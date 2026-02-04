@@ -62,3 +62,57 @@ The `DB_Manager` class handles all database operations:
 
 ```python
 DATABASE = "portfolio.db"
+Run your script:
+
+python main.py
+🧪 Example Usage
+from db_manager import DB_Manager
+from config import DATABASE
+
+manager = DB_Manager(DATABASE)
+
+# Create tables
+manager.create_tables()
+
+# Insert default values (skills and statuses)
+manager.default_insert()
+
+# Add a new project
+manager.insert_project([
+    (3, 'Personal-Portfolio-Website', 
+     'My personal portfolio website', 
+     'https://github.com/Regina2911/Personal-Portfolio-Website', 
+     1)
+])
+
+# Add skill to project
+manager.insert_skill(3, 'Personal-Portfolio-Website', 'Python')
+
+# Get project info
+print(manager.get_project_info(3, 'Personal-Portfolio-Website'))
+📌 Default Statuses
+The following statuses are included by default:
+
+Planning
+
+In Development
+
+Ready to Use
+
+Updated
+
+Completed (Not Supported)
+
+🔧 Future Improvements
+Add user authentication
+
+Create a Telegram bot interface
+
+Build a REST API (FastAPI)
+
+Add search and filter options
+
+Create a web frontend (Flask/Django)
+
+📝 License
+This project is open-source and free to use.
